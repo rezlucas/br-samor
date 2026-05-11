@@ -459,10 +459,10 @@
     }
     .loc-legend-item { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--txt-2); }
     .loc-legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
-    .loc-content-side { display:flex; flex-direction:column; }
+    .loc-content-side { display:flex; flex-direction:column; align-items:flex-start; }
     .loc-grid {
       display:grid; grid-template-columns:1fr 1fr; gap:10px;
-      margin-top:28px; margin-bottom:32px;
+      margin-top:28px; margin-bottom:0; width:100%;
     }
     .loc-entry {
       display:flex; align-items:center; gap:10px; padding:12px 14px;
@@ -471,7 +471,7 @@
     }
     .loc-entry:hover { border-color:var(--orange-border); background:var(--bg-card-h); }
     .loc-entry-dot { width:7px; height:7px; background:var(--orange); border-radius:50%; flex-shrink:0; }
-    .loc-cta { grid-column:1; align-self:start; margin-top:4px; }
+    .loc-cta { margin-top:32px; }
 
     /* ── RESPONSIVE ── */
     @media (max-width:1024px) {
@@ -540,7 +540,7 @@
       .air-section { padding:60px 0; }
       .locations-layout { grid-template-columns:1fr; gap:24px; }
       .loc-map-card { order:2; }
-      .loc-cta { order:3; grid-column:1; }
+      .loc-cta { margin-top:20px; }
       .loc-grid { grid-template-columns:1fr 1fr; }
       .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual"; }
       .dash-cta { margin-top:20px; }
@@ -941,7 +941,7 @@
           <div class="loc-entry"><div class="loc-entry-dot"></div>Porto Belo / SC</div>
           <div class="loc-entry"><div class="loc-entry-dot"></div>Curitiba / PR</div>
         </div>
-
+        <a href="#contato" class="btn btn-primary loc-cta">Falar com especialista</a>
       </div>
 
       <!-- Direita: mapa com legenda -->
@@ -950,7 +950,6 @@
           <source src="images/final_videomp_.mp4" type="video/mp4">
         </video>
       </div>
-      <a href="#contato" class="btn btn-primary loc-cta">Falar com especialista</a>
     </div>
   </div>
 </section>
