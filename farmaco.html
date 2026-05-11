@@ -269,10 +269,10 @@
     .sol-link:hover { gap:10px; }
 
     /* ── DASHBOARD ── */
-    .dash-grid { display:grid; grid-template-columns:1fr 1fr; grid-template-areas:"visual text" "visual cta"; column-gap:80px; row-gap:24px; align-items:start; }
+    .dash-grid { display:grid; grid-template-columns:1fr 1fr; grid-template-areas:"visual text"; column-gap:80px; align-items:center; }
     .dash-visual { grid-area:visual; height:420px; background:var(--bg-card); border-radius:16px; border:1px solid var(--border); overflow:hidden; }
     .dash-text { grid-area:text; }
-    .dash-cta { grid-area:cta; align-self:start; }
+    .dash-cta { margin-top:32px; }
     .dash-topbar {
       height:40px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border);
       display:flex; align-items:center; padding:0 20px; gap:8px;
@@ -530,7 +530,7 @@
       /* Hero: single col, show image between text and CTA */
       .hero-wrap {
         grid-template-columns:1fr;
-        grid-template-areas:"text" "visual" "cta";
+        grid-template-areas:"text" "visual";
         row-gap:14px; column-gap:0;
         padding:0 28px;
       }
@@ -541,7 +541,8 @@
       .about-btn { margin-top:20px; }
       .about-visual-wrap { height:280px; }
       /* Dashboard */
-      .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "cta"; }
+      .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual"; }
+      .dash-cta { margin-top:20px; }
       /* Fleet */
       .fleet-stats { grid-template-columns:repeat(3,1fr); }
       .fleet-body { grid-template-columns:1fr; }
@@ -608,7 +609,8 @@
       .loc-cta { order:3; grid-column:1; }
       .loc-grid { grid-template-columns:1fr 1fr; }
       /* Dash */
-      .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "cta"; }
+      .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual"; }
+      .dash-cta { margin-top:20px; }
       .dash-visual { height:320px; }
       /* About */
       .about-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual"; row-gap:16px; }
@@ -912,9 +914,9 @@
         <div class="s-label">Dashboards</div>
         <h2 class="s-title">Visibilidade total da cadeia farmacêutica</h2>
         <p class="s-desc">Indicadores de entrega, conformidade regulatória e cadeia de custódia disponíveis em tempo real.</p>
-      </div>
-      <div class="dash-cta">
-        <a href="#contato" class="btn btn-primary">Falar com especialista</a>
+        <div class="dash-cta">
+          <a href="#contato" class="btn btn-primary">Falar com especialista</a>
+        </div>
       </div>
     </div>
   </div>
