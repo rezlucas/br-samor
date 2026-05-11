@@ -204,13 +204,13 @@
     .about-grid {
       display:grid;
       grid-template-columns:1fr 1fr;
-      grid-template-areas:"visual text" "visual btn";
-      column-gap:80px; row-gap:24px;
-      align-items:start;
+      grid-template-areas:"visual text";
+      column-gap:80px;
+      align-items:center;
     }
     .about-grid > div:first-child { grid-area:text; }
     .about-visual-wrap { grid-area:visual; height:480px; border-radius:16px; overflow:hidden; border:1px solid var(--border); }
-    .about-btn { grid-area:btn; }
+    .about-btn { margin-top:32px; }
     .about-feats { display:flex; flex-direction:column; gap:22px; margin-top:34px; }
     .about-feat { display:flex; gap:16px; align-items:flex-start; }
     .feat-icon {
@@ -537,7 +537,8 @@
       .hero-visual { display:block; height:300px; }
       .float-card { display:none; }
       /* About: image below text */
-      .about-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "btn"; row-gap:20px; }
+      .about-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual"; row-gap:20px; }
+      .about-btn { margin-top:20px; }
       .about-visual-wrap { height:280px; }
       /* Dashboard */
       .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "cta"; }
@@ -610,7 +611,8 @@
       .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "cta"; }
       .dash-visual { height:320px; }
       /* About */
-      .about-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "btn"; row-gap:16px; }
+      .about-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual"; row-gap:16px; }
+      .about-btn { margin-top:20px; }
       .about-visual-wrap { height:240px; }
       /* Footer */
       .footer-top { grid-template-columns:1fr; gap:32px; }
@@ -676,12 +678,12 @@
         <div class="s-label">Sobre a BR Samor</div>
         <h2 class="s-title">Qualificados e autorizados para o segmento fármaco</h2>
         <p class="s-desc">Transportamos medicamentos, materiais cirúrgicos e correlatos com equipe treinada e frota licenciada pela ANVISA. Cada operação segue protocolos que garantem segurança e conformidade regulatória do início ao fim.</p>
+        <div class="about-btn">
+          <a href="#contato" class="btn btn-primary">Falar com especialista</a>
+        </div>
       </div>
       <div class="about-visual-wrap">
         <img src="images/farmaco/caminhão.webp" alt="Caminhão blindado BR Samor — transporte farmacêutico" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="about-btn">
-        <a href="#contato" class="btn btn-primary">Falar com especialista</a>
       </div>
     </div>
   </div>
