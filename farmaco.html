@@ -204,7 +204,7 @@
     .about-grid {
       display:grid;
       grid-template-columns:1fr 1fr;
-      grid-template-areas:"text visual" "btn visual";
+      grid-template-areas:"visual text" "visual btn";
       column-gap:80px; row-gap:24px;
       align-items:start;
     }
@@ -537,7 +537,7 @@
       .hero-visual { display:block; height:300px; }
       .float-card { display:none; }
       /* About: image below text */
-      .about-grid { grid-template-columns:1fr; grid-template-areas:"visual" "text" "btn"; row-gap:20px; }
+      .about-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "btn"; row-gap:20px; }
       .about-visual-wrap { height:280px; }
       /* Dashboard */
       .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "cta"; }
@@ -610,7 +610,7 @@
       .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "cta"; }
       .dash-visual { height:320px; }
       /* About */
-      .about-grid { grid-template-columns:1fr; grid-template-areas:"visual" "text" "btn"; row-gap:16px; }
+      .about-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "btn"; row-gap:16px; }
       .about-visual-wrap { height:240px; }
       /* Footer */
       .footer-top { grid-template-columns:1fr; gap:32px; }
