@@ -263,9 +263,9 @@
     .sol-link:hover { gap:10px; }
 
     /* ── DASHBOARD ── */
-    .dash-grid { display:grid; grid-template-columns:1fr 1fr; grid-template-areas:"visual text"; column-gap:80px; align-items:center; }
-    .dash-visual { grid-area:visual; height:420px; background:var(--bg-card); border-radius:16px; border:1px solid var(--border); overflow:hidden; }
-    .dash-text { grid-area:text; }
+    .dash-grid { display:grid; grid-template-columns:1fr 1fr; column-gap:80px; align-items:center; }
+    .dash-visual { height:420px; background:var(--bg-card); border-radius:16px; border:1px solid var(--border); overflow:hidden; }
+    .dash-text-col { display:flex; flex-direction:column; }
     .dash-cta { margin-top:32px; }
     .dash-topbar {
       height:40px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border);
@@ -505,7 +505,8 @@
     }
     .loc-legend-item { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--txt-2); }
     .loc-legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
-    .loc-content-side { display:flex; flex-direction:column; align-items:flex-start; }
+    .loc-content-side { display:flex; flex-direction:column; }
+    .loc-cta { align-self:flex-start; }
     .loc-grid {
       display:grid; grid-template-columns:1fr 1fr; gap:10px;
       margin-top:28px; margin-bottom:0; width:100%;
@@ -537,8 +538,11 @@
       .about-visual-wrap { order:2; height:280px; }
       .about-btn { order:3; margin-top:0; }
       /* Dashboard */
-      .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual"; }
-      .dash-cta { margin-top:20px; }
+      .dash-grid { display:flex; flex-direction:column; gap:20px; }
+      .dash-text-col { display:contents; }
+      .dash-text { order:1; }
+      .dash-visual { order:2; }
+      .dash-cta { order:3; margin-top:0; }
       /* Fleet */
       .fleet-stats { grid-template-columns:repeat(3,1fr); }
       .fleet-body { grid-template-columns:1fr; }
@@ -550,6 +554,7 @@
       /* Locations: map below cities */
       .locations-layout { grid-template-columns:1fr; gap:28px; }
       .loc-map-card { order:2; }
+      .loc-cta { align-self:stretch; margin-top:20px; }
       .benefits-grid { grid-template-columns:repeat(2,1fr); }
       .sol-grid { grid-template-columns:repeat(2,1fr); }
     }
@@ -602,12 +607,14 @@
       /* Locations */
       .locations-layout { grid-template-columns:1fr; gap:24px; }
       .loc-map-card { order:2; }
-      .loc-cta { margin-top:20px; }
+      .loc-cta { align-self:stretch; margin-top:20px; }
       .loc-grid { grid-template-columns:1fr 1fr; }
       /* Dash */
-      .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual"; }
-      .dash-cta { margin-top:20px; }
-      .dash-visual { height:320px; }
+      .dash-grid { display:flex; flex-direction:column; gap:20px; }
+      .dash-text-col { display:contents; }
+      .dash-text { order:1; }
+      .dash-visual { order:2; height:320px; }
+      .dash-cta { order:3; margin-top:0; }
       /* About */
       .about-grid { display:flex; flex-direction:column; gap:20px; }
       .about-text-col { display:contents; }
@@ -910,10 +917,12 @@
           </div>
         </div>
       </div>
-      <div class="dash-text">
-        <div class="s-label">Dashboards</div>
-        <h2 class="s-title">Visibilidade total da cadeia farmacêutica</h2>
-        <p class="s-desc">Indicadores de entrega, conformidade regulatória e cadeia de custódia disponíveis em tempo real.</p>
+      <div class="dash-text-col">
+        <div class="dash-text">
+          <div class="s-label">Dashboards</div>
+          <h2 class="s-title">Visibilidade total da cadeia farmacêutica</h2>
+          <p class="s-desc">Indicadores de entrega, conformidade regulatória e cadeia de custódia disponíveis em tempo real.</p>
+        </div>
         <div class="dash-cta">
           <a href="#contato" class="btn btn-primary">Falar com especialista</a>
         </div>
