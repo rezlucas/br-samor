@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transporte Farmacêutico Seguro | BR Samor</title>
+  <meta name="description" content="Empresa qualificada e autorizada pela ANVISA para transportar produtos do segmento fármaco com segurança, pontualidade e rastreabilidade total.">
+  <link rel="icon" type="image/png" href="images/logo/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B1922;
+      --bg-2: #162F42;
+      --bg-card: #1A3550;
+      --bg-card-h: #1F425D;
+      --orange: #F15922;
+      --orange-h: #FF6B35;
+      --orange-dim: rgba(241,89,34,0.12);
+      --orange-border: rgba(241,89,34,0.3);
+      --txt: #FFFFFF;
+      --txt-2: #8EAABC;
+      --txt-3: #4D6B7A;
+      --border: rgba(255,255,255,0.08);
+      --r: 10px;
+      --ease: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--txt); font-family:'Roboto',sans-serif; line-height:1.6; overflow-x:hidden; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      padding:20px 0; transition:var(--ease); border-bottom:1px solid transparent;
+    }
+    nav.scrolled {
+      background:rgba(11,25,34,0.97); backdrop-filter:blur(24px);
+      border-bottom-color:var(--border); padding:13px 0;
+    }
+    .nav-wrap {
+      max-width:1280px; margin:0 auto; padding:0 40px;
+      display:flex; align-items:center; gap:40px;
+    }
+    .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; flex-shrink:0; }
+    .logo-mark {
+      width:38px; height:38px; background:var(--orange);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Roboto Condensed',sans-serif; font-weight:900; font-size:18px; color:#fff;
+      clip-path:polygon(0 0,82% 0,100% 50%,82% 100%,0 100%);
+    }
+    .logo-text { font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:22px; color:#fff; letter-spacing:0.5px; }
+    .nav-links { display:flex; gap:30px; list-style:none; flex:1; justify-content:center; }
+    .nav-links a { color:var(--txt-2); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover { color:#fff; }
+    .btn {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:12px 22px; border-radius:var(--r); font-family:'Roboto',sans-serif;
+      font-weight:700; font-size:14px; text-decoration:none;
+      transition:var(--ease); cursor:pointer; border:none; white-space:nowrap;
+    }
+    .btn-primary { background:var(--orange); color:#fff; }
+    .btn-primary:hover { background:var(--orange-h); transform:translateY(-2px); box-shadow:0 8px 28px rgba(241,89,34,0.38); }
+    .btn-lg { padding:15px 34px; font-size:16px; }
+    .nav-mobile-btn {
+      display:none; background:none; border:1px solid var(--border);
+      border-radius:6px; padding:8px 12px; cursor:pointer; color:#fff;
+      font-size:20px; flex-shrink:0; line-height:1; transition:var(--ease);
+    }
+    .nav-mobile-btn:hover { border-color:var(--orange-border); color:var(--orange); }
+    .nav-cta-btn { flex-shrink:0; }
+    /* Mobile menu open state */
+    .nav-links.mobile-open {
+      display:flex !important; flex-direction:column; position:fixed;
+      top:60px; left:0; right:0; z-index:998;
+      background:rgba(9,18,28,0.98); backdrop-filter:blur(24px);
+      padding:8px 0 20px; gap:0;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      animation:slideDown 0.18s ease;
+    }
+    @keyframes slideDown {
+      from { opacity:0; transform:translateY(-6px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .nav-links.mobile-open li a {
+      display:block; padding:15px 24px; font-size:16px !important;
+      color:var(--txt) !important; border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+    .nav-links.mobile-open li:last-child a { border-bottom:none; }
+    .nav-mobile-cta {
+      display:none; margin:16px 20px 0; width:calc(100% - 40px);
+      justify-content:center;
+    }
+    .nav-links.mobile-open + .nav-mobile-cta { display:flex; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height:100vh; display:flex; align-items:center;
+      position:relative; overflow:hidden; padding:120px 0 80px;
+    }
+    .hero-bg {
+      position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse 70% 55% at 72% 50%, rgba(241,89,34,0.14) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 12% 25%, rgba(31,66,93,0.4) 0%, transparent 55%),
+        linear-gradient(180deg,#0B1922 0%,#0F2335 50%,#0B1922 100%);
+    }
+    .hero-grid {
+      position:absolute; inset:0;
+      background-image:linear-gradient(rgba(255,255,255,0.016) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,0.016) 1px,transparent 1px);
+      background-size:64px 64px;
+    }
+    .hero-wrap {
+      max-width:1280px; margin:0 auto; padding:0 40px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:"text visual" "cta visual";
+      column-gap:72px; row-gap:20px;
+      align-items:start; position:relative; z-index:2;
+    }
+    .hero-text { grid-area:text; }
+    .hero-cta { grid-area:cta; }
+    .hero-visual { grid-area:visual; }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--orange-dim); border:1px solid var(--orange-border);
+      padding:6px 14px; border-radius:100px; font-size:11px; font-weight:700;
+      color:var(--orange); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:22px;
+    }
+    .hero-badge-dot { width:6px; height:6px; background:var(--orange); border-radius:50%; animation:blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+    .hero h1 {
+      font-family:'Roboto Condensed',sans-serif; font-size:clamp(36px,4.5vw,60px);
+      font-weight:900; line-height:1.05; letter-spacing:-0.5px;
+      text-transform:uppercase; margin-bottom:20px;
+    }
+    .hero h1 em { color:var(--orange); font-style:normal; }
+    .hero-sub { font-size:17px; color:var(--txt-2); line-height:1.75; margin-bottom:36px; max-width:490px; }
+    .hero-cta { display:flex; gap:14px; flex-wrap:wrap; }
+
+    /* Hero visual */
+    .hero-visual { position:relative; height:480px; }
+    .hero-card {
+      position:absolute; inset:0; border-radius:16px; border:1px solid var(--border);
+      overflow:hidden; display:flex; align-items:center; justify-content:center;
+    }
+    .float-card {
+      position:absolute; background:rgba(11,25,34,0.96);
+      border:1px solid rgba(241,89,34,0.25); border-radius:10px; padding:14px 18px;
+      backdrop-filter:blur(12px); z-index:3;
+    }
+    .float-card-1 { top:24px; left:-28px; animation:flt1 4s ease-in-out infinite; }
+    .float-card-2 { bottom:50px; right:-18px; animation:flt2 4s ease-in-out infinite 1.2s; }
+    .float-card-3 { top:100px; right:-22px; animation:flt3 4s ease-in-out infinite 2.1s; }
+    @keyframes flt1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+    @keyframes flt2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+    @keyframes flt3 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-11px)} }
+    .float-val { font-family:'Roboto Condensed',sans-serif; font-size:22px; font-weight:900; color:var(--orange); }
+    .float-lbl { font-size:11px; color:var(--txt-2); margin-top:2px; }
+
+    /* Image placeholder */
+    .img-placeholder {
+      width:100%; height:100%;
+      background:linear-gradient(135deg,rgba(22,47,66,0.8) 0%,rgba(31,66,93,0.6) 100%);
+      border:2px dashed rgba(241,89,34,0.35);
+      display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:12px; padding:24px; text-align:center;
+      border-radius:14px;
+    }
+    .img-ph-icon { font-size:38px; opacity:0.45; }
+    .img-ph-file {
+      font-family:monospace; font-size:12px; color:var(--orange); font-weight:700;
+      background:var(--orange-dim); padding:4px 12px; border-radius:4px;
+      border:1px solid var(--orange-border);
+    }
+    .img-ph-desc { font-size:13px; color:var(--txt-2); line-height:1.5; max-width:230px; }
+
+    /* ── SECTION COMMONS ── */
+    section { padding:90px 0; }
+    .wrap { max-width:1280px; margin:0 auto; padding:0 40px; }
+    .s-label {
+      display:flex; align-items:center; gap:12px; margin-bottom:14px;
+      font-size:11px; font-weight:700; color:var(--orange);
+      text-transform:uppercase; letter-spacing:2.5px;
+    }
+    .s-label::before { content:''; width:28px; height:2px; background:var(--orange); }
+    .s-title {
+      font-family:'Roboto Condensed',sans-serif; font-size:clamp(28px,3.4vw,46px);
+      font-weight:900; line-height:1.08; text-transform:uppercase; letter-spacing:-0.3px;
+    }
+    .s-desc { color:var(--txt-2); font-size:16px; line-height:1.75; max-width:560px; margin-top:14px; }
+
+    /* ── BRANDS ── */
+    .brands { background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:38px 0; }
+    .brands-lbl { text-align:center; font-size:11px; font-weight:700; color:var(--txt-3); text-transform:uppercase; letter-spacing:2px; margin-bottom:26px; }
+    .brands-row { display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap; }
+    .brand { font-family:'Roboto Condensed',sans-serif; font-size:17px; font-weight:700; color:var(--txt-3); letter-spacing:0.5px; text-transform:uppercase; opacity:0.55; transition:opacity 0.2s; }
+    .brand:hover { opacity:0.85; }
+
+    /* ── ABOUT ── */
+    .about { background:var(--bg-2); }
+    .about-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      grid-template-areas:"text visual" "btn visual";
+      column-gap:80px; row-gap:24px;
+      align-items:start;
+    }
+    .about-grid > div:first-child { grid-area:text; }
+    .about-visual-wrap { grid-area:visual; height:480px; border-radius:16px; overflow:hidden; border:1px solid var(--border); }
+    .about-btn { grid-area:btn; }
+    .about-feats { display:flex; flex-direction:column; gap:22px; margin-top:34px; }
+    .about-feat { display:flex; gap:16px; align-items:flex-start; }
+    .feat-icon {
+      width:44px; height:44px; background:var(--orange-dim); border:1px solid var(--orange-border);
+      border-radius:9px; display:flex; align-items:center; justify-content:center;
+      flex-shrink:0; color:var(--orange);
+    }
+    .feat-title { font-weight:700; font-size:15px; margin-bottom:4px; }
+    .feat-desc { font-size:14px; color:var(--txt-2); line-height:1.65; }
+    /* ── FEATS STRIP ── */
+    .feats-strip { background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:0; }
+    .feats-strip-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+    .feats-strip-item {
+      display:flex; align-items:flex-start; gap:18px; padding:36px 32px;
+      border-right:1px solid var(--border); transition:background 0.2s;
+    }
+    .feats-strip-item:last-child { border-right:none; }
+    .feats-strip-item:hover { background:var(--bg-2); }
+
+    /* ── BENEFITS ── */
+    .benefits-hd { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:50px; flex-wrap:wrap; gap:20px; }
+    .benefits-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .b-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:12px; padding:28px; transition:var(--ease); position:relative; overflow:hidden;
+    }
+    .b-card::after {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:var(--orange); transform:scaleX(0); transition:transform 0.35s; transform-origin:left;
+    }
+    .b-card:hover { border-color:var(--orange-border); background:var(--bg-card-h); transform:translateY(-5px); }
+    .b-card:hover::after { transform:scaleX(1); }
+    .b-icon {
+      width:48px; height:48px; background:var(--orange-dim); border-radius:10px;
+      display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:var(--orange);
+    }
+    .b-title { font-family:'Roboto Condensed',sans-serif; font-size:20px; font-weight:700; text-transform:uppercase; margin-bottom:10px; }
+    .b-desc { font-size:14px; color:var(--txt-2); line-height:1.7; }
+
+    /* ── SOLUTIONS ── */
+    .solutions { background:var(--bg-2); }
+    .solutions-hd { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:50px; flex-wrap:wrap; gap:20px; }
+    .sol-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .sol-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:12px; padding:28px; transition:var(--ease);
+    }
+    .sol-card:hover { border-color:var(--orange-border); transform:translateY(-4px); }
+    .sol-num { font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; margin-bottom:14px; }
+    .sol-title { font-family:'Roboto Condensed',sans-serif; font-size:22px; font-weight:900; text-transform:uppercase; margin-bottom:10px; }
+    .sol-desc { font-size:14px; color:var(--txt-2); line-height:1.7; margin-bottom:18px; }
+    .sol-link {
+      font-size:13px; font-weight:700; color:var(--orange); text-decoration:none;
+      display:inline-flex; align-items:center; gap:6px; transition:gap 0.2s;
+    }
+    .sol-link:hover { gap:10px; }
+
+    /* ── DASHBOARD ── */
+    .dash-grid { display:grid; grid-template-columns:1fr 1fr; grid-template-areas:"visual text" "visual cta"; column-gap:80px; row-gap:24px; align-items:start; }
+    .dash-visual { grid-area:visual; height:420px; background:var(--bg-card); border-radius:16px; border:1px solid var(--border); overflow:hidden; }
+    .dash-text { grid-area:text; }
+    .dash-cta { grid-area:cta; align-self:start; }
+    .dash-topbar {
+      height:40px; background:rgba(255,255,255,0.03); border-bottom:1px solid var(--border);
+      display:flex; align-items:center; padding:0 20px; gap:8px;
+    }
+    .dash-dot { width:10px; height:10px; border-radius:50%; }
+    .dash-inner { padding:20px; }
+    .dash-bars { display:flex; align-items:flex-end; gap:8px; height:120px; margin-bottom:16px; }
+    .dash-bar-wrap { flex:1; display:flex; flex-direction:column; justify-content:flex-end; height:100%; }
+    .dash-bar {
+      background:var(--orange-dim); border:1px solid var(--orange-border);
+      border-radius:4px 4px 0 0; position:relative; overflow:hidden;
+      animation:growUp 1.4s cubic-bezier(0.4,0,0.2,1) forwards; transform-origin:bottom; transform:scaleY(0);
+    }
+    .dash-bar::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--orange); }
+    @keyframes growUp { to { transform:scaleY(1); } }
+    .dash-metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:16px; }
+    .dash-metric { background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:8px; padding:12px 14px; }
+    .dash-metric-v { font-family:'Roboto Condensed',sans-serif; font-size:22px; font-weight:900; color:var(--orange); }
+    .dash-metric-l { font-size:10px; color:var(--txt-3); margin-top:3px; }
+    .dash-route {
+      background:rgba(255,255,255,0.02); border:1px solid var(--border);
+      border-radius:8px; padding:14px 16px; margin-top:10px;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .dash-route-lbl { font-size:12px; color:var(--txt-2); }
+    .dash-route-status {
+      font-size:11px; font-weight:700; color:#25D366;
+      background:rgba(37,211,102,0.1); border:1px solid rgba(37,211,102,0.25);
+      padding:3px 10px; border-radius:100px;
+    }
+
+    /* ── FLEET ── */
+    .fleet { background:var(--bg-2); }
+    .fleet-header { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; margin-bottom:32px; }
+    .fleet-stats {
+      display:grid; grid-template-columns:repeat(5,1fr);
+      background:var(--bg-card); border-radius:12px; border:1px solid var(--border);
+      overflow:hidden; margin-bottom:28px;
+    }
+    .fleet-stat { text-align:center; padding:20px 12px; border-right:1px solid var(--border); }
+    .fleet-stat:last-child { border-right:none; }
+    .fleet-num { font-family:'Roboto Condensed',sans-serif; font-size:40px; font-weight:900; color:var(--orange); line-height:1; display:block; }
+    .fleet-lbl { font-size:11px; color:var(--txt-2); margin-top:6px; line-height:1.3; }
+    .fleet-body { display:grid; grid-template-columns:1.2fr 1fr; gap:28px; align-items:stretch; }
+    .fleet-photo-wrap { border-radius:12px; overflow:hidden; border:1px solid var(--border); height:100%; }
+    .fleet-photo-wrap img { width:100%; height:100%; display:block; object-fit:cover; }
+    .fleet-feats { display:flex; flex-direction:column; gap:9px; }
+    .fleet-feat { display:flex; align-items:center; gap:14px; padding:13px 16px; background:var(--bg-card); border:1px solid var(--border); border-radius:9px; transition:var(--ease); }
+    .fleet-feat:hover { border-color:var(--orange-border); background:var(--bg-card-h); }
+    .fleet-dot { width:8px; height:8px; background:var(--orange); border-radius:50%; flex-shrink:0; }
+    .fleet-feat-txt { font-size:14px; font-weight:500; }
+    /* Marquee mobile */
+    .fleet-marquee-wrap {
+      display:none; overflow:hidden; margin-top:0;
+      -webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);
+      mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);
+    }
+    .fleet-marquee-track {
+      display:flex; gap:10px; width:max-content;
+      animation:fmq 20s linear infinite;
+    }
+    .fleet-marquee-track:hover { animation-play-state:paused; }
+    @keyframes fmq { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .fmq-tag {
+      display:inline-flex; align-items:center; gap:8px; padding:10px 18px;
+      background:var(--bg-card); border:1px solid var(--border); border-radius:100px;
+      font-size:13px; font-weight:500; white-space:nowrap; flex-shrink:0; color:var(--txt);
+    }
+    .fmq-dot { width:7px; height:7px; background:var(--orange); border-radius:50%; flex-shrink:0; }
+
+    /* ── LOCATIONS ── */
+    .locations-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; margin-top:52px; }
+    .loc-map { height:380px; background:var(--bg-card); border-radius:16px; border:1px solid var(--border); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+    .loc-map-glow { position:absolute; inset:0; background:radial-gradient(ellipse 55% 50% at 42% 60%, rgba(241,89,34,0.16) 0%, transparent 65%); }
+    .loc-map-inner { position:relative; z-index:2; text-align:center; padding:40px; }
+    .loc-map-icon { font-size:72px; opacity:0.12; display:block; margin-bottom:14px; }
+    .loc-map-txt { font-size:13px; color:var(--txt-3); }
+    .loc-list { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .loc-item {
+      display:flex; align-items:center; gap:12px; padding:14px 18px;
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:8px; transition:var(--ease);
+    }
+    .loc-item:hover { border-color:var(--orange-border); }
+    .loc-dot { width:8px; height:8px; background:var(--orange); border-radius:50%; flex-shrink:0; }
+    .loc-name { font-size:14px; font-weight:500; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background:linear-gradient(135deg,#0D1F2D 0%,#162F42 50%,#0B1922 100%);
+      border-top:1px solid rgba(241,89,34,0.22); border-bottom:1px solid rgba(241,89,34,0.22);
+      padding:80px 0; text-align:center; position:relative; overflow:hidden;
+    }
+    .cta-banner-glow { position:absolute; inset:0; background:radial-gradient(ellipse 55% 80% at 50% 50%, rgba(241,89,34,0.18) 0%, transparent 68%); }
+    .cta-banner .wrap { position:relative; z-index:2; }
+
+    /* ── FAQ ── */
+    .faq { background:var(--bg-2); }
+    .faq-layout { display:grid; grid-template-columns:1fr 1fr; gap:80px; margin-top:52px; }
+    .faq-list { display:flex; flex-direction:column; gap:10px; }
+    .faq-item { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color 0.2s; }
+    .faq-item.open { border-color:var(--orange-border); }
+    .faq-q { padding:20px 24px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:700; font-size:15px; gap:16px; }
+    .faq-icon {
+      width:26px; height:26px; background:var(--orange-dim); border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      color:var(--orange); font-size:18px; flex-shrink:0; transition:transform 0.3s;
+    }
+    .faq-item.open .faq-icon { transform:rotate(45deg); }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
+    .faq-a-inner { padding:0 24px 20px; font-size:14px; color:var(--txt-2); line-height:1.8; }
+    .faq-aside { position:sticky; top:100px; }
+    .faq-aside-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:40px; text-align:center; }
+    .faq-aside-icon { font-size:60px; display:block; margin-bottom:20px; }
+    .faq-aside-title { font-family:'Roboto Condensed',sans-serif; font-size:24px; font-weight:900; text-transform:uppercase; margin-bottom:12px; }
+    .faq-aside-desc { font-size:14px; color:var(--txt-2); line-height:1.75; margin-bottom:24px; }
+
+    /* ── PARTNERS ── */
+    .partners { padding:50px 0; }
+    .partners-row { display:flex; justify-content:center; align-items:center; gap:52px; flex-wrap:wrap; margin-top:32px; }
+    .partner { font-family:'Roboto Condensed',sans-serif; font-size:19px; font-weight:700; color:var(--txt-3); opacity:0.5; transition:opacity 0.2s; text-transform:uppercase; }
+    .partner:hover { opacity:0.8; }
+
+    /* ── FOOTER ── */
+    footer { background:#070F16; border-top:1px solid var(--border); padding:60px 0 30px; }
+    .footer-top { display:grid; grid-template-columns:300px 1fr 1fr 1fr; gap:56px; margin-bottom:52px; }
+    .footer-brand-desc { font-size:14px; color:var(--txt-2); line-height:1.7; margin-top:14px; }
+    .footer-contact { margin-top:20px; display:flex; flex-direction:column; gap:8px; }
+    .footer-contact a { font-size:14px; color:var(--txt-2); text-decoration:none; transition:color 0.2s; display:flex; align-items:center; gap:8px; }
+    .footer-contact a:hover { color:#fff; }
+    .footer-col-title { font-family:'Roboto Condensed',sans-serif; font-size:15px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:18px; }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a { text-decoration:none; color:var(--txt-2); font-size:14px; transition:color 0.2s; }
+    .footer-links a:hover { color:#fff; }
+    .social-row { display:flex; gap:10px; margin-top:18px; }
+    .social-btn {
+      width:36px; height:36px; background:var(--bg-card); border:1px solid var(--border);
+      border-radius:8px; display:flex; align-items:center; justify-content:center;
+      color:var(--txt-2); text-decoration:none; font-size:14px; transition:var(--ease);
+    }
+    .social-btn:hover { border-color:var(--orange-border); color:var(--orange); }
+    .footer-bottom {
+      border-top:1px solid var(--border); padding-top:26px;
+      display:flex; justify-content:space-between; align-items:center;
+      font-size:13px; color:var(--txt-3); flex-wrap:wrap; gap:14px;
+    }
+    .footer-bottom a { color:var(--txt-3); text-decoration:none; transition:color 0.2s; }
+    .footer-bottom a:hover { color:var(--txt-2); }
+    .footer-bottom-links { display:flex; gap:22px; }
+
+    /* ── WHATSAPP ── */
+    .wa-btn {
+      position:fixed; bottom:30px; right:30px; z-index:999;
+      width:56px; height:56px; background:#25D366; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      text-decoration:none; box-shadow:0 4px 20px rgba(37,211,102,0.4);
+      transition:transform 0.25s, box-shadow 0.25s; animation:waPulse 3s ease-in-out infinite;
+    }
+    .wa-btn:hover { transform:scale(1.12); box-shadow:0 6px 30px rgba(37,211,102,0.6); }
+    @keyframes waPulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)} 50%{box-shadow:0 4px 32px rgba(37,211,102,0.65)} }
+
+    /* ── LOGO ── */
+    .logo-img { height:38px; width:auto; display:block; }
+
+    /* ── AIR TRANSPORT SECTION ── */
+    .air-section { position:relative; padding:100px 0; overflow:hidden; text-align:center; }
+    .air-bg { position:absolute; inset:0; background-size:cover; background-position:center; background-repeat:no-repeat; }
+    .air-overlay { position:absolute; inset:0; background:linear-gradient(140deg,rgba(9,18,28,0.9) 0%,rgba(15,30,45,0.82) 100%); }
+    .air-content { position:relative; z-index:2; }
+    .air-label {
+      display:inline-flex; align-items:center; gap:14px; margin-bottom:16px;
+      font-size:11px; font-weight:700; color:rgba(255,255,255,0.55);
+      text-transform:uppercase; letter-spacing:2.5px;
+    }
+    .air-label span { width:28px; height:2px; background:rgba(255,255,255,0.3); display:block; }
+    .air-partners-row {
+      display:flex; justify-content:center; align-items:center; gap:48px;
+      flex-wrap:wrap; margin-top:44px; padding-top:36px;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+    .air-partner {
+      font-family:'Roboto Condensed',sans-serif; font-size:22px; font-weight:700;
+      color:rgba(255,255,255,0.45); letter-spacing:1px; text-transform:uppercase;
+      transition:color 0.2s;
+    }
+    .air-partner:hover { color:rgba(255,255,255,0.85); }
+
+    /* ── SOLUTIONS SLIDER ── */
+    .sol-slider-wrap { position:relative; overflow:hidden; margin-top:40px; }
+    .sol-slider { display:flex; transition:transform 0.55s cubic-bezier(0.4,0,0.2,1); will-change:transform; }
+    .sol-slide { min-width:100%; height:540px; position:relative; overflow:hidden; }
+    .sol-slide-bg {
+      position:absolute; inset:0; background-size:cover; background-position:center;
+      transition:transform 6s ease; transform:scale(1);
+    }
+    .sol-slide.active .sol-slide-bg { transform:scale(1.04); }
+    .sol-slide-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(9,18,28,0.95) 0%, rgba(9,18,28,0.55) 55%, rgba(9,18,28,0.2) 100%);
+    }
+    .sol-slide-content { position:absolute; bottom:0; left:0; right:0; padding:52px 60px; z-index:2; }
+    .sol-slide-num { font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; margin-bottom:12px; text-transform:uppercase; }
+    .sol-slide-title { font-family:'Roboto Condensed',sans-serif; font-size:40px; font-weight:900; text-transform:uppercase; margin-bottom:14px; line-height:1; }
+    .sol-slide-desc { font-size:15px; color:rgba(255,255,255,0.72); line-height:1.75; max-width:640px; }
+    .sol-controls {
+      display:flex; align-items:center; justify-content:center; gap:14px;
+      padding:18px 24px;
+      background:var(--bg-2);
+      border-top:1px solid var(--border);
+    }
+    .sol-nav {
+      width:40px; height:40px; background:rgba(255,255,255,0.1); backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.2); border-radius:50%; color:#fff;
+      font-size:18px; cursor:pointer; transition:var(--ease); flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .sol-nav:hover { background:var(--orange); border-color:var(--orange); }
+    .sol-dots { display:flex; gap:8px; align-items:center; }
+    .sol-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.35); cursor:pointer; transition:all 0.3s; flex-shrink:0; }
+    .sol-dot.active { background:var(--orange); width:24px; border-radius:4px; }
+
+    /* ── MAP SECTION ── */
+    .locations-layout {
+      display:grid; grid-template-columns:1fr 1.5fr; gap:60px;
+      align-items:start; margin-top:52px;
+    }
+    .loc-map-card {
+      border-radius:16px; overflow:hidden; border:1px solid var(--border);
+      box-shadow:0 32px 80px rgba(0,0,0,0.35), 0 0 0 1px var(--border);
+      background:var(--bg-card); position:relative;
+    }
+    .loc-map-card img { width:100%; display:block; height:auto; }
+    .loc-legend {
+      display:flex; flex-wrap:wrap; gap:18px; padding:16px 22px;
+      border-top:1px solid var(--border); background:rgba(9,18,28,0.7);
+    }
+    .loc-legend-item { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--txt-2); }
+    .loc-legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+    .loc-content-side { display:flex; flex-direction:column; }
+    .loc-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:10px;
+      margin-top:28px; margin-bottom:32px;
+    }
+    .loc-entry {
+      display:flex; align-items:center; gap:10px; padding:12px 14px;
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:8px; font-size:13px; font-weight:500; transition:var(--ease);
+    }
+    .loc-entry:hover { border-color:var(--orange-border); background:var(--bg-card-h); }
+    .loc-entry-dot { width:7px; height:7px; background:var(--orange); border-radius:50%; flex-shrink:0; }
+    .loc-cta { grid-column:1; align-self:start; margin-top:4px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:1024px) {
+      /* Hero: single col, show image between text and CTA */
+      .hero-wrap {
+        grid-template-columns:1fr;
+        grid-template-areas:"text" "visual" "cta";
+        row-gap:14px; column-gap:0;
+        padding:0 28px;
+      }
+      .hero-visual { display:block; height:300px; }
+      .float-card { display:none; }
+      /* About: image below text */
+      .about-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "btn"; row-gap:20px; }
+      .about-visual-wrap { height:280px; }
+      /* Dashboard */
+      .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "cta"; }
+      /* Fleet */
+      .fleet-stats { grid-template-columns:repeat(3,1fr); }
+      .fleet-body { grid-template-columns:1fr; }
+      /* FAQ */
+      .faq-layout { grid-template-columns:1fr; }
+      .faq-aside { display:none; }
+      /* Footer */
+      .footer-top { grid-template-columns:1fr 1fr; }
+      /* Locations: map below cities */
+      .locations-layout { grid-template-columns:1fr; gap:28px; }
+      .loc-map-card { order:2; }
+      .benefits-grid { grid-template-columns:repeat(2,1fr); }
+      .sol-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:768px) {
+      .nav-links { display:none; }
+      .nav-mobile-btn { display:flex; }
+      .nav-cta-btn { display:none; }
+      nav { padding:12px 0; }
+      .nav-wrap { padding:0 20px; justify-content:space-between; gap:0; }
+      /* CTAs 100% width */
+      section .btn-primary,
+      .cta-banner .btn-primary,
+      .feats-strip .btn-primary,
+      .faq-aside-card .btn { width:100%; justify-content:center; }
+      section { padding:52px 0; }
+      .wrap { padding:0 18px; }
+      .hero-wrap { padding:0 18px; }
+      .hero { padding-top:90px; padding-bottom:40px; }
+      .hero h1 { font-size:clamp(30px,8vw,44px); }
+      .hero-sub { font-size:15px; margin-bottom:0; }
+      .hero-cta { margin-top:0; }
+      .hero-visual { height:240px; }
+      /* Feats strip: single col */
+      .feats-strip-grid { grid-template-columns:1fr; }
+      .feats-strip-item { border-right:none; border-bottom:1px solid var(--border); }
+      .feats-strip-item:last-child { border-bottom:none; }
+      /* Benefits: single col */
+      .benefits-hd { flex-direction:column; gap:12px; }
+      .benefits-hd p { max-width:100% !important; }
+      .benefits-grid { grid-template-columns:1fr; }
+      /* Solutions header */
+      .solutions-hd { flex-direction:column; align-items:flex-start; gap:16px; }
+      .sol-slide { height:320px; }
+      .sol-slide-content { padding:28px 20px; }
+      .sol-slide-title { font-size:26px; }
+      .sol-nav { width:36px; height:36px; font-size:15px; }
+      .sol-controls { padding:12px 16px; gap:10px; }
+      /* Fleet */
+      .fleet-header { flex-direction:column; gap:12px; align-items:flex-start; }
+      .fleet-stats { grid-template-columns:repeat(2,1fr); }
+      .fleet-stat { border-bottom:1px solid var(--border); }
+      .fleet-stat:nth-child(even) { border-right:none; }
+      .fleet-stat:last-child:nth-child(odd) { grid-column:1 / -1; border-right:none; }
+      .fleet-body { grid-template-columns:1fr; }
+      .fleet-photo-wrap img { height:240px; }
+      .fleet-feats { display:none; }
+      .fleet-marquee-wrap { display:block; margin-top:20px; }
+      /* Air section */
+      .air-section { padding:60px 0; }
+      /* Locations */
+      .locations-layout { grid-template-columns:1fr; gap:24px; }
+      .loc-map-card { order:2; }
+      .loc-cta { order:3; grid-column:1; }
+      .loc-grid { grid-template-columns:1fr 1fr; }
+      /* Dash */
+      .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "cta"; }
+      .dash-visual { height:320px; }
+      /* About */
+      .about-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual" "btn"; row-gap:16px; }
+      .about-visual-wrap { height:240px; }
+      /* Footer */
+      .footer-top { grid-template-columns:1fr; gap:32px; }
+      .footer-bottom { flex-direction:column; text-align:center; }
+      .footer-bottom-links { flex-wrap:wrap; justify-content:center; gap:16px; }
+      /* FAQ */
+      .faq-layout { grid-template-columns:1fr; }
+      .faq-aside { display:none; }
+      /* s-title smaller */
+      .s-title { font-size:clamp(20px,5.5vw,30px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-wrap">
+    <a href="#" class="nav-logo">
+      <img src="images/logo/logo.png" alt="BR Samor" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#beneficios">Benefícios</a></li>
+      <li><a href="#solucoes">Soluções</a></li>
+      <li><a href="#onde-estamos">Onde estamos</a></li>
+      <li><a href="#faq">Perguntas frequentes</a></li>
+    </ul>
+    <a href="#contato" class="btn btn-primary nav-cta-btn">Entrar em contato</a>
+    <button class="nav-mobile-btn" id="mobileBtn" aria-label="Menu">☰</button>
+  </div>
+  <a href="#contato" class="btn btn-primary nav-mobile-cta">Entrar em contato</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-wrap">
+    <div class="hero-text">
+      <h1>Transporte fármaco com <em>segurança regulatória</em> e total rastreabilidade</h1>
+      <p class="hero-sub">Autorizada pela ANVISA, com frota blindada e equipe treinada para garantir a integridade de cada remessa do ponto de coleta à entrega.</p>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <img src="images/farmaco/hero.webp" alt="Veículo blindado BR Samor — transporte farmacêutico" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,25,34,0.25) 0%,rgba(11,25,34,0.1) 100%);"></div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#contato" class="btn btn-primary btn-lg">Falar com especialista</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ABOUT -->
+<section class="about" id="sobre">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="s-label">Sobre a BR Samor</div>
+        <h2 class="s-title">Qualificados e autorizados para o segmento fármaco</h2>
+        <p class="s-desc">Transportamos medicamentos, materiais cirúrgicos e correlatos com equipe treinada e frota licenciada pela ANVISA. Cada operação segue protocolos que garantem segurança e conformidade regulatória do início ao fim.</p>
+      </div>
+      <div class="about-visual-wrap">
+        <img src="images/farmaco/caminhão.webp" alt="Caminhão blindado BR Samor — transporte farmacêutico" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="about-btn">
+        <a href="#contato" class="btn btn-primary">Falar com especialista</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATS STRIP -->
+<div class="feats-strip">
+  <div class="feats-strip-grid">
+    <div class="feats-strip-item">
+      <div class="feat-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L3 7v5c0 5 4 9.5 9 10 5-.5 9-5 9-10V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div>
+        <div class="feat-title">Autorização ANVISA</div>
+        <div class="feat-desc">Licença regulatória para medicamentos, materiais cirúrgicos e substâncias controladas.</div>
+      </div>
+    </div>
+    <div class="feats-strip-item">
+      <div class="feat-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <div class="feat-title">Equipe Especializada</div>
+        <div class="feat-desc">Treinamento específico em medicamentos, materiais hospitalares e substâncias controladas.</div>
+      </div>
+    </div>
+    <div class="feats-strip-item">
+      <div class="feat-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <div class="feat-title">Acompanhamento 24h</div>
+        <div class="feat-desc">Torre de controle 24h com rastreabilidade completa e relatórios em tempo real.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BENEFITS -->
+<section id="beneficios">
+  <div class="wrap">
+    <div class="benefits-hd">
+      <div>
+        <div class="s-label">Por que escolher a BR Samor</div>
+        <h2 class="s-title">Segurança e controle de ponta a ponta em cada entrega</h2>
+      </div>
+      <p class="s-desc" style="max-width:340px;">Frota blindada e protocolos certificados para cada remessa com conformidade e pontualidade.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="b-card">
+        <div class="b-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L3 7v5c0 5 4 9.5 9 10 5-.5 9-5 9-10V7l-9-5z"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8.5" y1="12" x2="15.5" y2="12"/></svg>
+        </div>
+        <div class="b-title">Autorização ANVISA</div>
+        <div class="b-desc">Licença e equipe habilitada para medicamentos e materiais cirúrgicos conforme exigências da ANVISA.</div>
+      </div>
+      <div class="b-card">
+        <div class="b-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/><line x1="6" y1="5" x2="8.5" y2="5"/><line x1="6" y1="9" x2="8" y2="9"/><line x1="6" y1="13" x2="8.5" y2="13"/></svg>
+        </div>
+        <div class="b-title">Controle de Temperatura</div>
+        <div class="b-desc">Monitoramento contínuo das condições de armazenamento, preservando a estabilidade físico-química de cada produto.</div>
+      </div>
+      <div class="b-card">
+        <div class="b-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="4" x2="3" y2="20"/><line x1="7" y1="4" x2="7" y2="20"/><line x1="10" y1="4" x2="10" y2="20"/><line x1="13" y1="4" x2="13" y2="20" stroke-width="2.5"/><line x1="17" y1="4" x2="17" y2="20"/><line x1="21" y1="4" x2="21" y2="20"/></svg>
+        </div>
+        <div class="b-title">Rastreabilidade Total</div>
+        <div class="b-desc">Cadeia de custódia completa com dashboards em tempo real, disponíveis 24h.</div>
+      </div>
+      <div class="b-card">
+        <div class="b-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L3 7v5c0 5 4 9.5 9 10 5-.5 9-5 9-10V7l-9-5z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div class="b-title">Cobertura do Seguro</div>
+        <div class="b-desc">Apólice com cobertura integral. Sem custos adicionais com escolta ou seguro complementar.</div>
+      </div>
+      <div class="b-card">
+        <div class="b-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6l1 9H8L9 3z"/><path d="M5.5 21h13a1 1 0 0 0 .88-1.48L15 12H9l-3.38 7.52A1 1 0 0 0 5.5 21z"/><line x1="9" y1="8.5" x2="15" y2="8.5"/></svg>
+        </div>
+        <div class="b-title">Protocolos Rígidos</div>
+        <div class="b-desc">Procedimentos certificados da coleta à entrega, garantindo conformidade regulatória em cada etapa.</div>
+      </div>
+      <div class="b-card">
+        <div class="b-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><line x1="17" y1="3" x2="17" y2="7"/><line x1="15" y1="5" x2="19" y2="5"/></svg>
+        </div>
+        <div class="b-title">Equipe Especializada</div>
+        <div class="b-desc">Colaboradores treinados em medicamentos, materiais hospitalares e substâncias controladas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="solutions" id="solucoes" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="solutions-hd">
+      <div>
+        <div class="s-label">Nossas soluções</div>
+        <h2 class="s-title">Soluções logísticas para<br>quem não pode correr riscos</h2>
+      </div>
+    </div>
+  </div>
+  <div class="sol-slider-wrap">
+    <div class="sol-slider" id="solSlider">
+
+      <div class="sol-slide active">
+        <div class="sol-slide-bg" style="background-image:url('images/farmaco/carrossel/Rectangle%2010.png')"></div>
+        <div class="sol-slide-overlay"></div>
+        <div class="sol-slide-content">
+          <div class="sol-slide-num">01 — SOLUÇÃO</div>
+          <div class="sol-slide-title">Standard</div>
+          <div class="sol-slide-desc">Serviço de coleta realizada dentro do horário comercial. Sua carga é embarcada para o destino no modal aéreo, considerando o prazo de entrega padrão estabelecido para cada localidade.</div>
+        </div>
+      </div>
+
+      <div class="sol-slide">
+        <div class="sol-slide-bg" style="background-image:url('images/farmaco/carrossel/Rectangle%2011.png')"></div>
+        <div class="sol-slide-overlay"></div>
+        <div class="sol-slide-content">
+          <div class="sol-slide-num">02 — SOLUÇÃO</div>
+          <div class="sol-slide-title">Logística Reversa</div>
+          <div class="sol-slide-desc">Serviço de coleta realizada no cliente final e retorno ao varejista/fabricante. Sua carga é embarcada para o destino no modal aéreo, considerando o prazo de entrega padrão estabelecido para cada localidade.</div>
+        </div>
+      </div>
+
+      <div class="sol-slide">
+        <div class="sol-slide-bg" style="background-image:url('images/farmaco/carrossel/Rectangle%2012.png')"></div>
+        <div class="sol-slide-overlay"></div>
+        <div class="sol-slide-content">
+          <div class="sol-slide-num">03 — SOLUÇÃO</div>
+          <div class="sol-slide-title">Priority</div>
+          <div class="sol-slide-desc">Serviço de coleta e entrega com veículo exclusivo e embarque garantido para a cidade de destino no primeiro voo disponível. Ideal para medicamentos urgentes e materiais cirúrgicos.</div>
+        </div>
+      </div>
+
+      <div class="sol-slide">
+        <div class="sol-slide-bg" style="background-image:url('images/farmaco/carrossel/Rectangle%2013.png')"></div>
+        <div class="sol-slide-overlay"></div>
+        <div class="sol-slide-content">
+          <div class="sol-slide-num">04 — SOLUÇÃO</div>
+          <div class="sol-slide-title">Portador Exclusivo</div>
+          <div class="sol-slide-desc">Carga especial com coleta e entrega sem restrição de horário, que segue em mãos, como bagagem, através de um colaborador BR SAMOR, do remetente ao destinatário, reduzindo o tempo de manuseio da remessa.</div>
+        </div>
+      </div>
+
+      <div class="sol-slide">
+        <div class="sol-slide-bg" style="background-image:url('images/farmaco/carrossel/Rectangle%2014.png')"></div>
+        <div class="sol-slide-overlay"></div>
+        <div class="sol-slide-content">
+          <div class="sol-slide-num">05 — SOLUÇÃO</div>
+          <div class="sol-slide-title">Rodo Express</div>
+          <div class="sol-slide-desc">Serviço realizado no modal rodoviário com prazo de carga aérea. A carga segue em veículo dedicado com informação atualizada em tempo real. Ideal para grande transferência com volume acima da capacidade permitida em voos comerciais.</div>
+        </div>
+      </div>
+
+      <div class="sol-slide">
+        <div class="sol-slide-bg" style="background-image:url('images/farmaco/carrossel/Rectangle%2015.png')"></div>
+        <div class="sol-slide-overlay"></div>
+        <div class="sol-slide-content">
+          <div class="sol-slide-num">06 — SOLUÇÃO</div>
+          <div class="sol-slide-title">Rodo Blindado</div>
+          <div class="sol-slide-desc">Voltado para cargas de alto valor, com viabilidade operacional em todo o território nacional e custos competitivos, além de rígido gerenciamento de risco, monitoramento em tempo real e apólice com cobertura integral.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="sol-controls">
+    <button class="sol-nav sol-prev" id="solPrev">&#8592;</button>
+    <div class="sol-dots" id="solDots">
+      <div class="sol-dot active"></div>
+      <div class="sol-dot"></div>
+      <div class="sol-dot"></div>
+      <div class="sol-dot"></div>
+      <div class="sol-dot"></div>
+      <div class="sol-dot"></div>
+    </div>
+    <button class="sol-nav sol-next" id="solNext">&#8594;</button>
+  </div>
+  <div style="padding:28px 40px; text-align:center; background:var(--bg-2);">
+    <a href="#contato" class="btn btn-primary">Falar com especialista</a>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section>
+  <div class="wrap">
+    <div class="dash-grid">
+      <div class="dash-visual">
+        <div class="dash-topbar">
+          <div class="dash-dot" style="background:#FF5F57"></div>
+          <div class="dash-dot" style="background:#FEBC2E"></div>
+          <div class="dash-dot" style="background:#28C840"></div>
+          <span style="font-size:12px;color:var(--txt-3);margin-left:8px;">Dashboard — Cadeia Farmacêutica</span>
+        </div>
+        <div class="dash-inner">
+          <div style="font-size:11px;color:var(--txt-3);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;">Entregas por período</div>
+          <div class="dash-bars">
+            <div class="dash-bar-wrap"><div class="dash-bar" style="height:55%;animation-delay:0.1s"></div></div>
+            <div class="dash-bar-wrap"><div class="dash-bar" style="height:70%;animation-delay:0.2s"></div></div>
+            <div class="dash-bar-wrap"><div class="dash-bar" style="height:48%;animation-delay:0.3s"></div></div>
+            <div class="dash-bar-wrap"><div class="dash-bar" style="height:85%;animation-delay:0.4s"></div></div>
+            <div class="dash-bar-wrap"><div class="dash-bar" style="height:62%;animation-delay:0.5s"></div></div>
+            <div class="dash-bar-wrap"><div class="dash-bar" style="height:90%;animation-delay:0.6s"></div></div>
+            <div class="dash-bar-wrap"><div class="dash-bar" style="height:75%;animation-delay:0.7s"></div></div>
+            <div class="dash-bar-wrap"><div class="dash-bar" style="height:95%;animation-delay:0.8s"></div></div>
+          </div>
+          <div class="dash-metrics">
+            <div class="dash-metric"><div class="dash-metric-v">98,7%</div><div class="dash-metric-l">No prazo</div></div>
+            <div class="dash-metric"><div class="dash-metric-v">24h</div><div class="dash-metric-l">Monitoramento</div></div>
+            <div class="dash-metric"><div class="dash-metric-v">0%</div><div class="dash-metric-l">Não conformidades</div></div>
+          </div>
+          <div class="dash-route">
+            <div>
+              <div class="dash-route-lbl" style="font-weight:700;color:var(--txt);font-size:13px;">SP → RJ · Medicamentos</div>
+              <div class="dash-route-lbl" style="margin-top:2px;font-size:11px;">Rastreamento ativo · ETA: 14h30</div>
+            </div>
+            <div class="dash-route-status">Em trânsito</div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-text">
+        <div class="s-label">Dashboards</div>
+        <h2 class="s-title">Visibilidade total da cadeia farmacêutica</h2>
+        <p class="s-desc">Indicadores de entrega, conformidade regulatória e cadeia de custódia disponíveis em tempo real.</p>
+      </div>
+      <div class="dash-cta">
+        <a href="#contato" class="btn btn-primary">Falar com especialista</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET -->
+<section class="fleet" id="frota">
+  <div class="wrap">
+    <div class="fleet-header">
+      <div>
+        <div class="s-label">Nossa Frota</div>
+        <h2 class="s-title">Frota 100% blindada com<br>protocolos farmacêuticos</h2>
+      </div>
+      <p class="s-desc" style="max-width:380px;margin-top:0;">Frota própria monitorada via satélite 24h, com blindagem certificada e cobertura nacional.</p>
+    </div>
+    <div class="fleet-stats">
+      <div class="fleet-stat"><span class="fleet-num" data-target="33">0</span><div class="fleet-lbl">Carretas blindadas</div></div>
+      <div class="fleet-stat"><span class="fleet-num" data-target="15">0</span><div class="fleet-lbl">Caminhões tocos</div></div>
+      <div class="fleet-stat"><span class="fleet-num" data-target="21">0</span><div class="fleet-lbl">Caminhões trucks</div></div>
+      <div class="fleet-stat"><span class="fleet-num" data-target="7">0</span><div class="fleet-lbl">Caminhões 3/4</div></div>
+      <div class="fleet-stat"><span class="fleet-num" data-target="11">0</span><div class="fleet-lbl">Caminhões VUC</div></div>
+    </div>
+    <div class="fleet-body">
+      <div class="fleet-photo-wrap">
+        <img src="images/farmaco/frota.webp" alt="Frota blindada BR Samor — transporte farmacêutico">
+      </div>
+      <div class="fleet-feats">
+        <div class="fleet-feat"><div class="fleet-dot"></div><div class="fleet-feat-txt">Blindagem MTX e Autolife</div></div>
+        <div class="fleet-feat"><div class="fleet-dot"></div><div class="fleet-feat-txt">Fechadura randômica</div></div>
+        <div class="fleet-feat"><div class="fleet-dot"></div><div class="fleet-feat-txt">Rastreador principal via satélite</div></div>
+        <div class="fleet-feat"><div class="fleet-dot"></div><div class="fleet-feat-txt">Câmeras internas e externas</div></div>
+        <div class="fleet-feat"><div class="fleet-dot"></div><div class="fleet-feat-txt">Vans 100% elétricas</div></div>
+        <div class="fleet-feat"><div class="fleet-dot"></div><div class="fleet-feat-txt">Cofre Autolife integrado</div></div>
+        <div class="fleet-feat"><div class="fleet-dot"></div><div class="fleet-feat-txt">Imobilizador de segurança</div></div>
+      </div>
+      <div class="fleet-marquee-wrap">
+        <div class="fleet-marquee-track">
+          <span class="fmq-tag"><span class="fmq-dot"></span>Blindagem MTX e Autolife</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Fechadura randômica</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Rastreador via satélite</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Câmeras internas e externas</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Vans 100% elétricas</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Cofre Autolife integrado</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Imobilizador de segurança</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Blindagem MTX e Autolife</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Fechadura randômica</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Rastreador via satélite</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Câmeras internas e externas</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Vans 100% elétricas</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Cofre Autolife integrado</span>
+          <span class="fmq-tag"><span class="fmq-dot"></span>Imobilizador de segurança</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPORTE AÉREO -->
+<section class="air-section">
+  <div class="air-bg" style="background-image:url('images/banner_avião.webp')"></div>
+  <div class="air-overlay"></div>
+  <div class="wrap air-content">
+    <div class="air-label">
+      <span></span>
+      Transporte Aéreo
+      <span></span>
+    </div>
+    <h2 class="s-title" style="max-width:760px;margin:0 auto 20px;color:#fff;">Trabalhamos em parceria com as melhores e maiores companhias aéreas</h2>
+    <p style="color:rgba(255,255,255,0.62);font-size:17px;max-width:600px;margin:0 auto;line-height:1.8;">Para garantir o transporte de sua carga farmacêutica com integridade e segurança, unindo rapidez e pontualidade na entrega em todo o território nacional.</p>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="onde-estamos" style="background:var(--bg-2);">
+  <div class="wrap">
+    <div class="s-label">Onde estamos</div>
+    <h2 class="s-title">Cobertura nacional, presença nas principais capitais</h2>
+
+    <div class="locations-layout">
+
+      <!-- Esquerda: texto + cidades + CTA -->
+      <div class="loc-content-side">
+        <p class="s-desc" style="margin-top:0;">Quatro filiais estratégicas com cobertura nacional e o mesmo padrão de segurança em cada região.</p>
+
+        <div class="loc-grid">
+          <div class="loc-entry"><div class="loc-entry-dot"></div>Guarulhos / SP</div>
+          <div class="loc-entry"><div class="loc-entry-dot"></div>Contagem / MG</div>
+          <div class="loc-entry"><div class="loc-entry-dot"></div>Brasília / DF</div>
+          <div class="loc-entry"><div class="loc-entry-dot"></div>Manaus / AM</div>
+          <div class="loc-entry"><div class="loc-entry-dot"></div>Jaboatão / PE</div>
+          <div class="loc-entry"><div class="loc-entry-dot"></div>João Pessoa / PB</div>
+          <div class="loc-entry"><div class="loc-entry-dot"></div>Londrina / PR</div>
+          <div class="loc-entry"><div class="loc-entry-dot"></div>Rio de Janeiro / RJ</div>
+          <div class="loc-entry"><div class="loc-entry-dot"></div>Porto Belo / SC</div>
+          <div class="loc-entry"><div class="loc-entry-dot"></div>Curitiba / PR</div>
+        </div>
+
+      </div>
+
+      <!-- Direita: mapa com legenda -->
+      <div class="loc-map-card">
+        <video autoplay muted loop playsinline style="width:100%;display:block;height:auto;">
+          <source src="images/final_videomp_.mp4" type="video/mp4">
+        </video>
+      </div>
+      <a href="#contato" class="btn btn-primary loc-cta">Falar com especialista</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="contato">
+  <div class="cta-banner-glow"></div>
+  <div class="wrap">
+    <div class="s-label" style="justify-content:center;margin-bottom:20px;">Fale com a BR Samor</div>
+    <h2 class="s-title" style="max-width:700px;margin:0 auto 30px;text-align:center;">Garanta a conformidade e segurança do seu transporte farmacêutico</h2>
+    <p style="color:var(--txt-2);font-size:16px;max-width:520px;margin:0 auto 36px;line-height:1.7;text-align:center;">Cuide das suas vendas. Nós garantimos a distribuição com segurança, pontualidade e conformidade regulatória.</p>
+    <a href="tel:+552722338840" class="btn btn-primary btn-lg">Falar com especialista</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="s-label">Perguntas frequentes</div>
+    <h2 class="s-title">Esclareça suas dúvidas sobre<br>nossa operação farmacêutica</h2>
+    <p class="s-desc">As dúvidas mais frequentes sobre nossos processos e soluções para o segmento fármaco.</p>
+    <div class="faq-layout">
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>1. A BR Samor possui autorização da ANVISA para transporte farmacêutico?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Sim. A BR SAMOR é autorizada pela ANVISA para transportar medicamentos, materiais cirúrgicos e correlatos, com frota licenciada e equipe treinada conforme as exigências regulatórias vigentes.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>2. Que tipos de produtos farmacêuticos a BR Samor transporta?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Medicamentos, materiais cirúrgicos e correlatos. Nossa equipe e frota são estruturadas para o manuseio seguro de cada tipo de substância.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>3. Como é feita a rastreabilidade das cargas farmacêuticas?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Rastreamento via satélite 24h e dashboards com status de entrega, relatórios de cadeia de custódia e histórico completo de cada operação.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>4. A BR Samor possui cobertura de seguro para cargas farmacêuticas?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Sim. Apólice com cobertura integral e gerenciamento de risco inclusos, sem custos adicionais com escolta ou seguro complementar.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>5. Como a BR Samor garante a pontualidade nas entregas farmacêuticas?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Rotas pré-definidas, frota própria e parceria com as principais companhias aéreas para cumprimento rigoroso de prazos.</div>
+          </div>
+        </div>
+      </div>
+      <div class="faq-aside">
+        <div class="faq-aside-card">
+          <span class="faq-aside-icon">⚕️</span>
+          <div class="faq-aside-title">Transporte com Conformidade</div>
+          <div class="faq-aside-desc">Tire suas dúvidas sobre transporte farmacêutico, conformidade ANVISA e rastreabilidade.</div>
+          <a href="tel:+552722338840" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;">+55 (27) 2233-8840</a>
+          <a href="mailto:brsamor@brsamor.com.br" class="btn" style="width:100%;justify-content:center;background:var(--bg-2);color:var(--txt-2);border:1px solid var(--border);">brsamor@brsamor.com.br</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="display:inline-flex;margin-bottom:4px;">
+          <img src="images/logo/logo.png" alt="BR Samor" class="logo-img">
+        </a>
+        <p class="footer-brand-desc">Fundada em 2009, a BR SAMOR oferece soluções customizadas em logística e transporte para todo o território nacional, com uma equipe especialista e frota 100% própria.</p>
+        <div class="footer-contact">
+          <a href="tel:+552722338840">📞 +55 (27) 2233-8840</a>
+          <a href="mailto:brsamor@brsamor.com.br">✉ brsamor@brsamor.com.br</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navegação</div>
+        <ul class="footer-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#beneficios">Benefícios</a></li>
+          <li><a href="#solucoes">Soluções</a></li>
+          <li><a href="#onde-estamos">Onde estamos</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Soluções</div>
+        <ul class="footer-links">
+          <li><a href="#">Standard</a></li>
+          <li><a href="#">Priority</a></li>
+          <li><a href="#">Portador Exclusivo</a></li>
+          <li><a href="#">Rodo Express</a></li>
+          <li><a href="#">Rodo Blindado</a></li>
+          <li><a href="#">Logística Reversa</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contato</div>
+        <ul class="footer-links">
+          <li><a href="tel:+552722338840">+55 (27) 2233-8840</a></li>
+          <li><a href="mailto:brsamor@brsamor.com.br">brsamor@brsamor.com.br</a></li>
+          <li><a href="#">Política de privacidade</a></li>
+          <li><a href="#">LGPD</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© BR Samor. Todos os direitos reservados. Em conformidade com a LGPD.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Política de privacidade</a>
+        <a href="#">Termos de uso</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const answer = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = '0'; });
+      if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+    });
+  });
+
+  function animateCounters() {
+    document.querySelectorAll('.fleet-num').forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const start = performance.now();
+      function tick(now) {
+        const p = Math.min((now - start) / 1600, 1);
+        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+  const fleetEl = document.querySelector('.fleet-stats');
+  new IntersectionObserver(entries => { if (entries[0].isIntersecting) { animateCounters(); } }, { threshold: 0.4 }).observe(fleetEl);
+
+  const mobileBtn = document.getElementById('mobileBtn');
+  const navLinks = document.querySelector('.nav-links');
+  mobileBtn.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('mobile-open');
+    mobileBtn.textContent = isOpen ? '✕' : '☰';
+    mobileBtn.setAttribute('aria-expanded', isOpen);
+  });
+  // Fecha menu ao clicar em um link
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('mobile-open');
+      mobileBtn.textContent = '☰';
+    });
+  });
+
+  // Solutions slider
+  (function() {
+    const slider = document.getElementById('solSlider');
+    if (!slider) return;
+    const slides = slider.querySelectorAll('.sol-slide');
+    const dots = document.querySelectorAll('.sol-dot');
+    let current = 0;
+    let autoTimer;
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      slider.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.getElementById('solPrev').addEventListener('click', () => { clearInterval(autoTimer); goTo(current - 1); startAuto(); });
+    document.getElementById('solNext').addEventListener('click', () => { clearInterval(autoTimer); goTo(current + 1); startAuto(); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { clearInterval(autoTimer); goTo(i); startAuto(); }));
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    slider.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { clearInterval(autoTimer); goTo(diff > 0 ? current + 1 : current - 1); startAuto(); }
+    });
+
+    function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 5000); }
+    startAuto();
+  })();
+</script>
+</body>
+</html>
