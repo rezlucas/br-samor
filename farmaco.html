@@ -201,15 +201,9 @@
 
     /* ── ABOUT ── */
     .about { background:var(--bg-2); }
-    .about-grid {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      grid-template-areas:"visual text";
-      column-gap:80px;
-      align-items:center;
-    }
-    .about-grid > div:first-child { grid-area:text; }
-    .about-visual-wrap { grid-area:visual; height:480px; border-radius:16px; overflow:hidden; border:1px solid var(--border); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; column-gap:80px; align-items:center; }
+    .about-visual-wrap { height:480px; border-radius:16px; overflow:hidden; border:1px solid var(--border); }
+    .about-text-col { display:flex; flex-direction:column; }
     .about-btn { margin-top:32px; }
     .about-feats { display:flex; flex-direction:column; gap:22px; margin-top:34px; }
     .about-feat { display:flex; gap:16px; align-items:flex-start; }
@@ -531,15 +525,17 @@
       .hero-wrap {
         grid-template-columns:1fr;
         grid-template-areas:"text" "visual" "cta";
-        row-gap:14px; column-gap:0;
+        row-gap:20px; column-gap:0;
         padding:0 28px;
       }
       .hero-visual { display:block; height:300px; }
       .float-card { display:none; }
       /* About: image below text */
-      .about-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual"; row-gap:20px; }
-      .about-btn { margin-top:20px; }
-      .about-visual-wrap { height:280px; }
+      .about-grid { display:flex; flex-direction:column; gap:20px; }
+      .about-text-col { display:contents; }
+      .about-text { order:1; }
+      .about-visual-wrap { order:2; height:280px; }
+      .about-btn { order:3; margin-top:0; }
       /* Dashboard */
       .dash-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual"; }
       .dash-cta { margin-top:20px; }
@@ -613,9 +609,11 @@
       .dash-cta { margin-top:20px; }
       .dash-visual { height:320px; }
       /* About */
-      .about-grid { grid-template-columns:1fr; grid-template-areas:"text" "visual"; row-gap:16px; }
-      .about-btn { margin-top:20px; }
-      .about-visual-wrap { height:240px; }
+      .about-grid { display:flex; flex-direction:column; gap:20px; }
+      .about-text-col { display:contents; }
+      .about-text { order:1; }
+      .about-visual-wrap { order:2; height:240px; }
+      .about-btn { order:3; margin-top:0; }
       /* Footer */
       .footer-top { grid-template-columns:1fr; gap:32px; }
       .footer-bottom { flex-direction:column; text-align:center; }
@@ -676,16 +674,18 @@
 <section class="about" id="sobre">
   <div class="wrap">
     <div class="about-grid">
-      <div>
-        <div class="s-label">Sobre a BR Samor</div>
-        <h2 class="s-title">Qualificados e autorizados para o segmento fármaco</h2>
-        <p class="s-desc">Transportamos medicamentos, materiais cirúrgicos e correlatos com equipe treinada e frota licenciada pela ANVISA. Cada operação segue protocolos que garantem segurança e conformidade regulatória do início ao fim.</p>
+      <div class="about-visual-wrap">
+        <img src="images/farmaco/caminhão.webp" alt="Caminhão blindado BR Samor — transporte farmacêutico" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="about-text-col">
+        <div class="about-text">
+          <div class="s-label">Sobre a BR Samor</div>
+          <h2 class="s-title">Qualificados e autorizados para o segmento fármaco</h2>
+          <p class="s-desc">Transportamos medicamentos, materiais cirúrgicos e correlatos com equipe treinada e frota licenciada pela ANVISA. Cada operação segue protocolos que garantem segurança e conformidade regulatória do início ao fim.</p>
+        </div>
         <div class="about-btn">
           <a href="#contato" class="btn btn-primary">Falar com especialista</a>
         </div>
-      </div>
-      <div class="about-visual-wrap">
-        <img src="images/farmaco/caminhão.webp" alt="Caminhão blindado BR Samor — transporte farmacêutico" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
     </div>
   </div>
