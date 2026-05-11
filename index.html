@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BR Samor — Transporte Blindado</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #0d1b27;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      padding: 40px 20px;
+    }
+    img.logo { height: 48px; }
+    h1 { font-size: 20px; color: rgba(255,255,255,0.5); font-weight: 400; text-align: center; }
+    .cards {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .card {
+      background: #1a2f42;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 40px 48px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      transition: border-color 0.2s, transform 0.2s;
+      min-width: 220px;
+    }
+    .card:hover { border-color: #F15922; transform: translateY(-4px); }
+    .card-icon { font-size: 40px; margin-bottom: 16px; }
+    .card-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .card-sub { font-size: 13px; color: rgba(255,255,255,0.45); }
+  </style>
+</head>
+<body>
+  <img class="logo" src="images/logo/logo.png" alt="BR Samor">
+  <h1>Selecione o setor</h1>
+  <div class="cards">
+    <a class="card" href="/farmaco.html">
+      <div class="card-icon">💊</div>
+      <div class="card-title">Farmacêutico</div>
+      <div class="card-sub">Transporte de medicamentos</div>
+    </a>
+    <a class="card" href="/eletronicos.html">
+      <div class="card-icon">📦</div>
+      <div class="card-title">Eletrônicos</div>
+      <div class="card-sub">Transporte de alto valor</div>
+    </a>
+  </div>
+</body>
+</html>
